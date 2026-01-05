@@ -17,6 +17,8 @@ import com.shan.sportex.ui.components.SegmentedFilterBar
 import com.shan.sportex.ui.components.MatchListCard
 import com.shan.sportex.viewmodel.MatchItem
 import com.shan.sportex.viewmodel.MatchesViewModel
+import com.shan.sportex.ui.components.MatchListCard2
+
 
 @Composable
 fun MatchesScreen(viewModel: MatchesViewModel = viewModel()) {
@@ -60,7 +62,7 @@ fun MatchesScreen(viewModel: MatchesViewModel = viewModel()) {
             contentPadding = PaddingValues(vertical = 8.dp)
         ) {
             items(matches, key = { it.id }) {
-                MatchListCard()
+                MatchListCard2()
             }
         }
     }
