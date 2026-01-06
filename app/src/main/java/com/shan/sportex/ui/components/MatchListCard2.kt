@@ -1,7 +1,7 @@
 package com.shan.sportex.ui.components
 
 import android.graphics.BlurMaskFilter
-import android.graphics.Paint as AndroidPaint // Import Android's Paint with an alias
+import android.graphics.Paint as AndroidPaint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,28 +11,25 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.runtime.*
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.*
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas // Correct import for drawIntoCanvas
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.shan.sportex.R
-import com.shan.sportex.ui.components.SolidOdds
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas // Correct import for drawIntoCanvas
-import androidx.compose.ui.graphics.nativeCanvas // Correct import for nativeCanvas
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.toArgb
+
+
 
 @Composable
 fun MatchListCard2(modifier: Modifier = Modifier) {
@@ -42,15 +39,15 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier
             .fillMaxWidth()
-            .height(260.dp) // Adjusted height to better fit content
+            .height(260.dp)
             .padding(horizontal = 16.dp, vertical = 10.dp),
-        shape = RoundedCornerShape(1.dp),
+        shape = RoundedCornerShape(7.9.dp),
         color = Color.Transparent,
         elevation = 0.dp
     ) {
         Box(
             modifier = Modifier
-                .clip(RoundedCornerShape(12.dp))
+                .clip(RoundedCornerShape(7.9.dp))
                 .background(Color(0x14ACBED0))
                 .drawBehind {
 
@@ -104,13 +101,11 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                     .drawWithCache {
 
                         val leftLight = AndroidPaint().apply {
-                            // ✅ FIX: Assign the integer color directly.
                             color = android.graphics.Color.argb(90, 125, 6, 0)
                             maskFilter = BlurMaskFilter(100f, BlurMaskFilter.Blur.NORMAL)
                         }
 
                         val rightLight = AndroidPaint().apply {
-                            // ✅ FIX: Assign the integer color directly.
                             color = android.graphics.Color.argb(50, 180, 159, 44)
                             maskFilter = BlurMaskFilter(100f, BlurMaskFilter.Blur.NORMAL)
                         }
@@ -124,7 +119,6 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                                     leftLight
                                 )
                             }
-
                             drawIntoCanvas { canvas ->
                                 canvas.nativeCanvas.drawCircle(
                                     size.width * 1.20f,
@@ -141,7 +135,7 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
             Column(
                 modifier = Modifier
                     .padding(1.dp)
-                    .fillMaxSize() // Use fillMaxSize to ensure it covers the Box
+                    .fillMaxSize()
                     .background(
                         Brush.linearGradient(
                             listOf(
@@ -153,6 +147,7 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                     .padding(12.dp)
             ) {
 
+                // Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -174,25 +169,38 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(18.dp))
 
+                // 🔹 TEAMS + SCORE ROW
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-                    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+                    // LEFT TEAM (HORIZONTAL)
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
                         Image(
                             painter = painterResource(R.drawable.liverpool_fc_seeklogo),
                             contentDescription = null,
-                            modifier = Modifier.size(44.dp)
+                            modifier = Modifier.size(32.dp)
                         )
-                        Spacer(modifier = Modifier.height(6.dp))
-                        Text("MO-W", color = Color.White)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("MO-W", color = Color.White, fontWeight = FontWeight.Medium)
                     }
 
-                    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1.5f)) {
-
+                    // SCORE
+                    Column(
+                        modifier = Modifier.weight(1.5f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
                         Row {
-                            Text("117-5 : ", color = Color(0xFFB0B6BB), fontWeight = FontWeight.Bold)
+                            Text(
+                                "117-5 : ",
+                                color = Color(0xFFB0B6BB),
+                                fontWeight = FontWeight.Bold
+                            )
                             Text("104-5", color = Color.White, fontWeight = FontWeight.Bold)
                         }
 
@@ -205,25 +213,34 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                         )
                     }
 
-                    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+                    // RIGHT TEAM (HORIZONTAL)
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = "NS-W",
+                            color = Color.White,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
                         Image(
                             painter = painterResource(R.drawable.manchester),
                             contentDescription = null,
-                            modifier = Modifier.size(44.dp)
+                            modifier = Modifier.size(32.dp)
                         )
-                        Spacer(modifier = Modifier.height(6.dp))
-                        Text("NS-W", color = Color.White)
                     }
                 }
-
                 Spacer(modifier = Modifier.height(20.dp))
 
+                // ODDS
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    SolidOdds("MO-W", "1.96", Modifier.weight(1f))
+                    MatchOdds("MO-W", "1.96", Modifier.weight(1f))
                     Spacer(modifier = Modifier.width(12.dp))
-                    SolidOdds("Draw", "3.40", Modifier.weight(1f))
+                    MatchOdds("Draw", "3.40", Modifier.weight(1f))
                     Spacer(modifier = Modifier.width(12.dp))
-                    SolidOdds("NS-W", "4.20", Modifier.weight(1f))
+                    MatchOdds("NS-W", "4.20", Modifier.weight(1f))
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -238,21 +255,21 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-private fun SolidOdds(
-    title: String,
-    value: String,
-    modifier: Modifier = Modifier
-) {
-    Column(
-        modifier = modifier
-            .clip(RoundedCornerShape(10.dp))
-            .background(Color(0x14ACBED0))
-            .padding(vertical = 10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+    @Composable
+    fun MatchOdds(
+        title: String,
+        value: String,
+        modifier: Modifier = Modifier
     ) {
-        Text(title, color = Color(0xFF8E9499), style = MaterialTheme.typography.caption)
-        Spacer(modifier = Modifier.height(6.dp))
-        Text(value, color = Color.White, fontWeight = FontWeight.Bold)
+        Column(
+            modifier = modifier
+                .clip(RoundedCornerShape(10.dp))
+                .background(Color(0x14ACBED0))
+                .padding(vertical = 10.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(title, color = Color(0xFF8E9499), style = MaterialTheme.typography.caption)
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(value, color = Color.White, fontWeight = FontWeight.Bold)
+        }
     }
-}
