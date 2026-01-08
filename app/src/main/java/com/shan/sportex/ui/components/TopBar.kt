@@ -1,97 +1,112 @@
 package com.shan.sportex.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.shan.sportex.R
-import com.shan.sportex.ui.theme.GreenAccent
-import com.shan.sportex.ui.theme.LightText
+import android.os.Build
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import androidx.compose.ui.graphics.graphicsLayer
 
 @Composable
-fun TopBar(
-    modifier: Modifier = Modifier,
-    onSearchClick: () -> Unit = {},
-    onNotificationsClick: () -> Unit = {}
-) {
-    Surface(
-        modifier = modifier
+fun TopBar() {
+
+    // HEADER CONTAINER
+    Box(
+        modifier = Modifier
             .fillMaxWidth()
-            .height(72.dp),
-        color = MaterialTheme.colors.surface,
-        elevation = 2.dp
+            .height(102.dp)
+            .background(
+                Color(0xFFACBED0).copy(alpha = 0.05f), // rgba(172,190,208,0.1)
+                shape = RoundedCornerShape(
+                    bottomStart = 18.dp,
+                    bottomEnd = 18.dp
+                )
+            )
+            .border(
+                width = 1.dp,
+                color = Color(0x1AACBED0), // subtle bottom border
+                shape = RoundedCornerShape(
+                    bottomStart = 18.dp,
+                    bottomEnd = 18.dp
+                )
+            )
     ) {
+
+        // INNER TOP BAR ROW
         Row(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+                .fillMaxWidth()
+                .padding(
+                    start = 16.dp,
+                    end = 16.dp,
+                    top = 54.dp,   // matches CSS padding-top
+                    bottom = 12.dp
+                ),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Left: Logo + Title
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(GreenAccent),
-                    contentAlignment = Alignment.Center
-                ) {
-                    // optional drawable—safe fallback if missing
-                    val logoPainter = runCatching { painterResource(id = R.drawable.ic_launcher_foreground) }.getOrNull()
-                    if (logoPainter != null) {
-                        Image(
-                            painter = logoPainter,
-                            contentDescription = "SportEx Logo",
-                            modifier = Modifier.size(24.dp),
-                            contentScale = ContentScale.Fit
-                        )
-                    } else {
-                        Text(
-                            text = "SE",
-                            style = MaterialTheme.typography.body1,
-                            color = LightText
-                        )
-                    }
-                }
 
-                Spacer(modifier = Modifier.width(12.dp))
+            // LOGO ONLY (NO TEXT)
+            Icon(
+                painter = painterResource(id = R.drawable.ic_app_logo),
+                contentDescription = "Sportex Logo",
+                tint = Color.Unspecified,
+                modifier = Modifier
+                    .width(128.dp)
+                    .height(34.dp)
+            )
 
-                Text(
-                    text = "SPORTEX",
-                    style = MaterialTheme.typography.h5,
-                    color = LightText
+            Spacer(modifier = Modifier.weight(1f))
+
+            // RIGHT ICON GROUP
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+
+                GlassIconButton(
+                    icon = R.drawable.ic_notification_logo
                 )
-            }
 
-            // Right: action icons
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onSearchClick) {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = "Search",
-                        tint = LightText
-                    )
-                }
-                IconButton(onClick = onNotificationsClick) {
-                    Icon(
-                        imageVector = Icons.Default.Notifications,
-                        contentDescription = "Notifications",
-                        tint = LightText
-                    )
-                }
+                GlassIconButton(
+                    icon = R.drawable.ic_search_logo
+                )
             }
         }
     }
 }
+
+@Composable
+private fun GlassIconButton(
+    icon: Int
+) {
+    Box(
+        modifier = Modifier
+            .size(36.dp)
+            .background(
+                color = Color(0x26ACBED0), // rgba(172,190,208,0.15)
+                shape = RoundedCornerShape(10.dp)
+            )
+            .border(
+                width = 0.5.dp,
+                color = Color(0x14ACBED0), // rgba(172,190,208,0.08)
+                shape = RoundedCornerShape(10.dp)
+            ),
+        contentAlignment = Alignment.Center
+    ) {
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = null,
+            tint = Color(0xB3ACBED0), // rgba(172,190,208,0.7)
+            modifier = Modifier.size(18.dp)
+        )
+    }
+}
+

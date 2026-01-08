@@ -28,7 +28,7 @@ fun GlassMatchCard(
             .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
 
-        // 🔥 GLOW LAYER (behind the card)
+        // GLOW LAYER (behind the card)
         Box(
             modifier = Modifier
                 .matchParentSize()
@@ -44,7 +44,7 @@ fun GlassMatchCard(
                 )
         )
 
-        // 🧊 GLASS CARD
+        // GLASS CARD
         Surface(
             modifier = Modifier
                 .fillMaxWidth()

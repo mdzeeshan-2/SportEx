@@ -94,7 +94,7 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                 }
         ) {
 
-            // 🔹 GLASS LIGHT LAYER
+            // GLASS LIGHT LAYER
             Box(
                 modifier = Modifier
                     .matchParentSize()
@@ -131,7 +131,7 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
                     }
             )
 
-            // 🔹 CONTENT LAYER
+            // CONTENT LAYER
             Column(
                 modifier = Modifier
                     .padding(1.dp)
@@ -169,7 +169,7 @@ fun MatchListCard2(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // 🔹 TEAMS + SCORE ROW
+                // TEAMS + SCORE ROW
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically

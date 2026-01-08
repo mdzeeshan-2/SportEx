@@ -1,369 +1,132 @@
-/* Theme=Dark */
+/* Header */
+
+box-sizing: border-box;
 
 /* Auto layout */
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding: 0px 12px 24px;
-gap: 10px;
+padding: 54px 0px 12px;
+gap: 24px;
+isolation: isolate;
 
 width: 375px;
-height: 92px;
+height: 102px;
 
-background: #0E0F11;
-border-radius: 15px 15px 0px 0px;
+background: rgba(172, 190, 208, 0.1);
+border-bottom: 1px solid rgba(172, 190, 208, 0.1);
+border-radius: 0px 0px 18px 18px;
 
 /* Inside auto layout */
 flex: none;
-order: 1;
+order: 0;
+align-self: stretch;
 flex-grow: 0;
 
 
-/* Frame 2087331071 */
+/* Top Bar */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px 12px;
+gap: 159px;
+
+width: 375px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Logo */
+
+width: 128px;
+height: 34px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Balance and Notifications */
 
 /* Auto layout */
 display: flex;
 flex-direction: row;
 align-items: center;
 padding: 0px;
-
-width: 351px;
-height: 71px;
-
-border-radius: 0px;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* Havigation category - dark  */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px 0px 8px;
 gap: 12px;
 
-width: 87.75px;
-height: 71px;
+display: none;
+width: 181px;
+height: 36px;
 
 
 /* Inside auto layout */
 flex: none;
-order: 0;
-flex-grow: 1;
-
-
-/* Active_label */
-
-width: 40px;
-height: 3px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
+order: 1;
 flex-grow: 0;
 
 
-/* Line */
-
-position: absolute;
-width: 28px;
-height: 3px;
-left: 6px;
-top: 0px;
-
-background: #FFFDFE;
-transform: matrix(1, 0, 0, -1, 0, 0);
-
-
-/* Blur */
-
-position: absolute;
-width: 40px;
-height: 13px;
-left: calc(50% - 40px/2 - 0.25px);
-top: -6px;
-
-background: #FFFDFE;
-filter: blur(22px);
-
-
-/* Frame 2087331069 */
+/* Balance and Notifications */
 
 /* Auto layout */
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
 padding: 0px;
-gap: 12px;
+gap: 8px;
 
-width: 87.75px;
-height: 48px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* Golf */
-
-width: 24px;
-height: 24px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Vector */
-
-position: absolute;
-left: 8.33%;
-right: 8.33%;
-top: 5.21%;
-bottom: 8.33%;
-
-background: #FFFDFE;
-
-
-/* Amount */
-
-width: 87.75px;
-height: 12px;
-
-/* Tab/Small */
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 12px;
-/* identical to box height, or 100% */
-text-align: center;
-
-color: #FFFDFE;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* Havigation category - dark  */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px 0px 8px;
-gap: 12px;
-
-width: 87.75px;
-height: 71px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 1;
-
-
-/* Active_label */
-
-width: 40px;
-height: 3px;
-
-opacity: 0;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Line */
-
-position: absolute;
-width: 28px;
-height: 3px;
-left: 6px;
-top: 0px;
-
-background: rgba(172, 190, 208, 0.4);
-transform: matrix(1, 0, 0, -1, 0, 0);
-
-
-/* Frame 2087331069 */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-gap: 12px;
-
-width: 87.75px;
-height: 48px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* Library */
-
-width: 24px;
-height: 24px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Vector */
-
-position: absolute;
-width: 18px;
-height: 14.46px;
-left: 3px;
-top: 7.54px;
-
-background: rgba(172, 190, 208, 0.4);
-
-
-/* Vector */
-
-position: absolute;
-width: 15.68px;
-height: 2.02px;
-left: 4.24px;
-top: 4.72px;
-
-background: rgba(172, 190, 208, 0.4);
-opacity: 0.7;
-
-
-/* Vector */
-
-position: absolute;
-width: 11.62px;
-height: 1.69px;
-left: 6.19px;
-top: 2px;
-
-background: rgba(172, 190, 208, 0.4);
-opacity: 0.4;
-
-
-/* Amount */
-
-width: 87.75px;
-height: 12px;
-
-/* Tab/Small */
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 12px;
-/* identical to box height, or 100% */
-text-align: center;
-
-color: rgba(172, 190, 208, 0.4);
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* Havigation category - dark  */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px 0px 8px;
-gap: 12px;
-
-width: 87.75px;
-height: 71px;
+width: 80px;
+height: 36px;
 
 
 /* Inside auto layout */
 flex: none;
 order: 2;
-flex-grow: 1;
-
-
-/* Active_label */
-
-width: 40px;
-height: 3px;
-
-opacity: 0;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
 flex-grow: 0;
 
 
-/* Line */
+/* Button */
 
-position: absolute;
-width: 28px;
-height: 3px;
-left: 6px;
-top: 0px;
-
-background: rgba(172, 190, 208, 0.4);
-transform: matrix(1, 0, 0, -1, 0, 0);
-
-
-/* Frame 2087331069 */
+box-sizing: border-box;
 
 /* Auto layout */
 display: flex;
-flex-direction: column;
+flex-direction: row;
+justify-content: center;
 align-items: center;
-padding: 0px;
-gap: 12px;
+padding: 10px;
+gap: 16px;
 
-width: 87.75px;
-height: 48px;
+width: 36px;
+height: 36px;
 
+background: rgba(172, 190, 208, 0.15);
+border: 0.5px solid rgba(172, 190, 208, 0.08);
+border-radius: 10px;
 
 /* Inside auto layout */
 flex: none;
-order: 1;
-align-self: stretch;
+order: 0;
 flex-grow: 0;
 
 
-/* Bill List */
+/* Bell */
 
-width: 24px;
-height: 24px;
+width: 16px;
+height: 16px;
 
 
 /* Inside auto layout */
@@ -372,7 +135,7 @@ order: 0;
 flex-grow: 0;
 
 
-/* Subtract */
+/* Vector */
 
 position: absolute;
 left: 12.5%;
@@ -380,113 +143,38 @@ right: 12.5%;
 top: 8.33%;
 bottom: 8.33%;
 
-background: rgba(172, 190, 208, 0.4);
-opacity: 0.5;
+background: rgba(172, 190, 208, 0.7);
 
 
-/* Subtract */
+/* Button */
 
-position: absolute;
-left: 26.04%;
-right: 26.04%;
-top: 28.12%;
-bottom: 36.46%;
+box-sizing: border-box;
 
-background: rgba(172, 190, 208, 0.4);
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px;
+gap: 16px;
 
+width: 36px;
+height: 36px;
 
-/* Amount */
-
-width: 87.75px;
-height: 12px;
-
-/* Tab/Small */
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 12px;
-/* identical to box height, or 100% */
-text-align: center;
-
-color: rgba(172, 190, 208, 0.4);
-
+background: rgba(172, 190, 208, 0.15);
+border: 0.5px solid rgba(172, 190, 208, 0.08);
+border-radius: 10px;
 
 /* Inside auto layout */
 flex: none;
 order: 1;
-align-self: stretch;
 flex-grow: 0;
 
 
-/* Havigation category - dark  */
+/* Magnifer */
 
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px 0px 8px;
-gap: 12px;
-
-width: 87.75px;
-height: 71px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 3;
-flex-grow: 1;
-
-
-/* Active_label */
-
-width: 40px;
-height: 3px;
-
-opacity: 0;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-
-/* Line */
-
-position: absolute;
-width: 28px;
-height: 3px;
-left: 6px;
-top: 0px;
-
-background: rgba(172, 190, 208, 0.4);
-transform: matrix(1, 0, 0, -1, 0, 0);
-
-
-/* Frame 2087331069 */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-gap: 12px;
-
-width: 87.75px;
-height: 48px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
-
-/* User Circle */
-
-width: 24px;
-height: 24px;
+width: 16px;
+height: 16px;
 
 
 /* Inside auto layout */
@@ -503,40 +191,4 @@ right: 8.33%;
 top: 8.33%;
 bottom: 8.33%;
 
-background: rgba(172, 190, 208, 0.4);
-opacity: 0.5;
-
-
-/* Vector */
-
-position: absolute;
-left: 27.18%;
-right: 27.18%;
-top: 25%;
-bottom: 14.58%;
-
-background: rgba(172, 190, 208, 0.4);
-
-
-/* Amount */
-
-width: 87.75px;
-height: 12px;
-
-/* Tab/Small */
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 12px;
-/* identical to box height, or 100% */
-text-align: center;
-
-color: rgba(172, 190, 208, 0.4);
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
+border: 1.2px solid rgba(172, 190, 208, 0.7);

@@ -40,7 +40,7 @@ fun MatchListCard(modifier: Modifier = Modifier) {
         elevation = 0.dp
     ) {
 
-        // 🔹 ROOT CONTAINER
+        // ROOT CONTAINER
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(15.dp))
@@ -55,7 +55,7 @@ fun MatchListCard(modifier: Modifier = Modifier) {
                 )
         ) {
 
-            // 🔹 GLASS LIGHT LAYER (ONLY THIS HAS CANVAS)
+            // GLASS LIGHT LAYER (ONLY THIS HAS CANVAS)
             Box(
                 modifier = Modifier
                     .matchParentSize()
@@ -96,7 +96,7 @@ fun MatchListCard(modifier: Modifier = Modifier) {
                     }
             )
 
-            // 🔹 CONTENT LAYER (ON TOP OF GLASS)
+            // CONTENT LAYER (ON TOP OF GLASS)
             Column(
                 modifier = Modifier
                     .background(
@@ -192,7 +192,7 @@ fun MatchListCard(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(26.dp))
 
-                // 🔹 ODDS — CLEAN, NO GLASS OVERLAY
+                // NO GLASS OVERLAY
                 Row(modifier = Modifier.fillMaxWidth()) {
                     SolidOdds("MO-W", "1.96", Modifier.weight(1f))
                     Spacer(modifier = Modifier.width(12.dp))
